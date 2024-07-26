@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-md-7 mx-auto">
+      <h1 class="text-white mb-3" style="margin-left: 2%">Search</h1>
+      <!-- Adjust margin-left as needed for proper alignment -->
+    </div>
+  </div>
+  <ul class="list-group list-group-flush" id="notes">
+    {% if lon and lat %}
+    <li class="list-group-item bg-dark text-white">
+      Latitude: {{ lat }}, Longitude: {{ lon }}
+      <button type="button" class="close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+    {% endif %}
+  </ul>
+  <form method="POST" class="d-flex justify-content-center">
+    <div class="form-group d-flex col-sm-8 col-md-7">
+      <input
+        name="address"
+        class="form-control bg-white text-dark"
+        id="address"
+        placeholder="Search"
+      />
+      <button type="submit" class="btn btn-secondary ml-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
